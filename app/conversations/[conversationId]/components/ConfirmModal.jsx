@@ -39,7 +39,7 @@ const ConfirmModal = ({ isOpen, onClose }) => {
                     Delete Conversation
                 </DialogTitle>
                 <div className="mt-2">
-                    <p className="text-sm text-gray-500">Are you sure you want to delete this conversation? this action can't be undone.</p>
+                    <p className="text-sm text-gray-500">Are you sure you want to delete this conversation? this action cannot be undone.</p>
                 </div>
             </div>
         </div>

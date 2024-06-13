@@ -108,7 +108,7 @@ const ProfileDrawer = ({ data, isOpen, onClose }) => {
                                                                         Emails
                                                                     </dt>
                                                                     <dd className="mt-1 text-sm text-gray-900 sm:col-span-2">
-                                                                        {data.users.map((user) => (<div>{user.email}, </div>))}
+                                                                        {data.users.map((user) => (<div key={user.id}>{user.email}, </div>))}
                                                                     </dd>
                                                                 </div>
                                                             ): (
