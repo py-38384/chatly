@@ -5,6 +5,7 @@ import UsersList from './components/UsersList'
 
 const UsersLayout = async ({ children }) => {
   const users = await getUsers()
+  console.log(users)
   return (
     <Sidebar>
       <div className='h-full'>

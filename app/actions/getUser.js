@@ -1,4 +1,4 @@
-import {} from '@/app/libs/prismadb'
+import prisma from '@/app/libs/prismadb'
 import getSession from './getSession'
 
 const getUsers = async () => {
@@ -20,6 +20,9 @@ const getUsers = async () => {
 
         return users
     } catch (error) {
+        console.log(error)
+        console.log('Session - ',session)
+        console.log('Prisma -',prisma)
         return []
     }
 }

@@ -6,10 +6,16 @@ const nextConfig = {
         ]
     },
     images: {
-        domains: [
-            'res.cloudinary.com',
-            'lh3.googleusercontent.com',
-            'avatars.githubusercontent.com'
+        remotePatterns: [
+            {
+                hostname: 'res.cloudinary.com'
+            },
+            {
+                hostname: 'lh3.googleusercontent.com'
+            },
+            {
+                hostname: 'avatars.githubusercontent.com'
+            },
         ]
     }
 };

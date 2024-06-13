@@ -11,7 +11,7 @@ const UsersList = ({ items }) => {
                     People
                 </div>
             </div>
-            {items? items.map((item)=>(
+            {items.length > 0? items.map((item)=>(
                 <UserBox
                     key={item.id}
                     data={item}
