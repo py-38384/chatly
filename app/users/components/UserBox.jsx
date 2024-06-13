@@ -14,7 +14,7 @@ const UserBox = ({ key, data }) => {
     axios.post('/api/conversations', {
       userId: data.id
     })
-    .then((data) => {
+    .then(({data}) => {
         router.push(`/conversations/${data.id}`)
     })
     .finally(() => {
