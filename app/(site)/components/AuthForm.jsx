@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
-import Input from "@/app/components/input/input"
+import Input from "@/app/components/input/Input"
 import Button from "@/app/components/Button"
 import AuthSocialButton from "./AuthSocialButton"
 import Image from "next/image"
