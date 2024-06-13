@@ -30,11 +30,11 @@ const Form = () => {
   return (
     <div className='py-4 px-4 bg-white border-t flex items-center gap-2 lg:gap-4 w-full'>
         <CldUploadButton options={{ maxFiles: 1 }} onUpload={handleUpload} uploadPreset='i5t3avbb' >
-            <HiPhoto size={30} className='text-sky-500'/>
+            <HiPhoto size={30} className='text-[#772f12]'/>
         </CldUploadButton>
         <form onSubmit={handleSubmit(onSubmit)} className='flex items-center gap-2 lg:gap-4 w-full'>
             <MessageInput id="message" type="text" register={register} errors={errors} placeholder="Write a message" required />
-            <button type='submit' className='rounded-full p-2 bg-sky-500 cursor-pointer hover:bg-sky-600 transition'>
+            <button type='submit' className='rounded-full p-2 bg-[#772f12] cursor-pointer hover:bg-[#60250e] transition'>
                 <HiPaperAirplane size={18} className='text-white'/>
             </button>
         </form>

@@ -13,7 +13,7 @@ const Button = ({type, className="", fullWidth, children, onClick, secondary, da
         fullWidth && "w-full",
         secondary ? "text-gray-900" : 'text-white',
         danger && "bg-rose-500 hover:bg-rose-600 focus-visible:outline-rose-600:",
-        !secondary && !danger && "bg-sky-500 hover:bg-sky-600 focus-visible:outline-sky-600",
+        !secondary && !danger && "bg-[#772f12] hover:bg-[#60250e] focus-visible:outline-[#60250e]",
       )}
     >
       {children}

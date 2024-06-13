@@ -28,7 +28,7 @@ const Header = ({ conversation }) => {
         />
         <div className='bg-white w-full flex border-b-[1px] sm:px-4 py-3 px-4 lg:px-6 justify-between items-center shadow-sm'>
             <div className='flex gap-3 items-center'>
-                <Link href='/conversations' className='lg:hidden block text-sky-500 transition cursor-pointer'>
+                <Link href='/conversations' className='lg:hidden block text-[#772f12] transition cursor-pointer'>
                     <HiChevronLeft size={32} />
                 </Link>
                 {conversation.isGroup ? (
@@ -48,7 +48,7 @@ const Header = ({ conversation }) => {
             <HiEllipsisHorizontal
                 size={32}
                 onClick={() => setDrawerOpen(true)}
-                className='text-sky-500 cursor-pointer hover:text-sky-600 transition'
+                className='text-[#772f12] cursor-pointer hover:text-[#60250e] transition'
             />
         </div>
     </>

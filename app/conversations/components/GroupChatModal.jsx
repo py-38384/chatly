@@ -80,6 +80,7 @@ const GroupChatModal = ({isOpen, onClose, users}) => {
                 </div>
                 <div className="mt-6 flex items-center justify-end gap-x-6">
                     <Button
+                        className='border hover:bg-slate-300 border-gray-300' 
                         disabled={isLoading}
                         onClick={onClose}
                         type='button'

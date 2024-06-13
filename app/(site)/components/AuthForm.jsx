@@ -82,7 +82,7 @@ const AuthForm = () => {
     return (
         <>
             <div className="sm:mx-auto sm:w-full sm:max-w-md flex items-center justify-center flex-col">
-                <Image width={48} height={48} src={'images/logo.svg'} alt="LOGO" className="" />
+                <Image width={88} height={88} src={'/favicon.ico'} alt="LOGO" className="" />
                 <h2 className="mt-6 text-center text-3xl font-bold tracking-bold text-gray-900">{variant === 'LOGIN'? 'Sign in to your account': 'Sign up to your account'}</h2>
             </div>
             <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
