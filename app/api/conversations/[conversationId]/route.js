@@ -32,12 +32,6 @@ export async function DELETE ( request, { params }){
             }
         })
 
-        // exisitingConversations.users.forEach((user) => {
-        //     if(user.email){
-        //         pusherServer.trigger(user.email, 'conversation:remove', exisitingConversations)
-        //     }
-        // })
-
         exisitingConversations.users.forEach((user) => {
             if (user.email){
                 pusherServer.trigger(user.email, 'conversation:remove', exisitingConversations)
