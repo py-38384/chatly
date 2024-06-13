@@ -45,12 +45,6 @@ const ConversationList = ({ initialItems, users }) => {
       }))
     }
 
-    // const removeHandler = (conversation) => {
-    //   setItems((current) => {
-    //     return [...current.filter((currentConversation) => currentConversation !== conversation.id)]
-    //   })
-    // }
-
     const removeHandler = (conversation) => {
       setItems((current) => {
         return [...current.filter((currentConver) => currentConver.id !== conversation.id)]

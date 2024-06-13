@@ -15,7 +15,7 @@ const UserBox = ({ key, data }) => {
       userId: data.id
     })
     .then((data) => {
-        router.push(`/conversations`)
+        router.push(`/conversations/${data.id}`)
     })
     .finally(() => {
       setIsLoading(false)

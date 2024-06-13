@@ -33,7 +33,6 @@ const Body = ({ initialMessages }) => {
     const updateMessageHandler = (updatedMessage) => {
       setMessages((current) => current.map((currentMessage) => {
           if(currentMessage.id === updatedMessage.id){
-            console.log('Updated massage Object -',updatedMessage)
             return updatedMessage
           }
           return currentMessage
