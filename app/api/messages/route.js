@@ -89,7 +89,6 @@ export async function POST ( request ){
 
         return NextResponse.json(newMessage)
     } catch (error) {
-        console.log('Message API Error',error)
         return new NextResponse('InternalError', { status: 500 })
     }
 }

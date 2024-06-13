@@ -20,9 +20,6 @@ const getUsers = async () => {
 
         return users
     } catch (error) {
-        console.log(error)
-        console.log('Session - ',session)
-        console.log('Prisma -',prisma)
         return []
     }
 }

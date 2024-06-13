@@ -81,7 +81,6 @@ export async function POST(request, { params }){
 
         return NextResponse.json(updatedMessage)
     } catch (error) {
-        console.log('Seen Route error',error)
         return new NextResponse('Internal error', {status: 500})
     }
 } 

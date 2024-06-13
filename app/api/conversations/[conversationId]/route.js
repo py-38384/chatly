@@ -46,7 +46,6 @@ export async function DELETE ( request, { params }){
 
         return NextResponse.json(deletedConversation)
     } catch (error) {
-        console.log('ERROR_CONVERSATION_ERROR', error)
         return new NextResponse('Internal server error!', { status: 500 })
     }
 }

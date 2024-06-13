@@ -15,9 +15,7 @@ const UserBox = ({ key, data }) => {
       userId: data.id
     })
     .then((data) => {
-      setTimeout(()=>{
-        router.push(`/conversations/${data.data.id}`)
-      },500)
+        router.push(`/conversations`)
     })
     .finally(() => {
       setIsLoading(false)
