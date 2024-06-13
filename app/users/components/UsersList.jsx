@@ -11,12 +11,12 @@ const UsersList = ({ items }) => {
                     People
                 </div>
             </div>
-            {items.map((item)=>(
+            {items? items.map((item)=>(
                 <UserBox
                     key={item.id}
                     data={item}
                 />
-            ))}
+            )): (<div>No user available</div>)}
         </div>
     </aside>
   )
