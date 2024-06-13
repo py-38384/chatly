@@ -79,6 +79,7 @@ const SettingsModal = ({ currentUser, isOpen, onClose }) => {
                                             disabled={isLoading}
                                             secondary
                                             type='button'
+                                            className='hover:underline'
                                         >
                                             Change
                                         </Button>

@@ -77,7 +77,7 @@ const ConversationList = ({ initialItems, users }) => {
             <div>
               Messages
             </div>
-            <div onClick={() => setIsModalOpen(true)} className='rounded-full p-2 bg-gray-100 text-gray-600 cursor-pointer hover:opacity-75 transition'>
+            <div onClick={() => setIsModalOpen(true)} className='rounded-full p-2 bg-[#f9f4f2] text-gray-600 cursor-pointer hover:opacity-75 transition'>
                 <MdOutlineGroupAdd size={20} />
             </div>
           </div>
