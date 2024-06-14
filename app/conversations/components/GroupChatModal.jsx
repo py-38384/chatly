@@ -45,7 +45,7 @@ const GroupChatModal = ({isOpen, onClose, users}) => {
         .finally(() => setIsLoading(false))
     }
     return (
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal isOpen={isOpen} onClose={onClose} className="sm:p-6 px-4 pb-4 max-sm:pt-6">
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="space-y-12">
                     <div className="border-b border-gray-900/10 pb-12">

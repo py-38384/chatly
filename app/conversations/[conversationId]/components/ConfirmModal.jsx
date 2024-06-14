@@ -29,6 +29,7 @@ const ConfirmModal = ({ isOpen, onClose }) => {
     <Modal
         isOpen={isOpen}
         onClose={onClose}
+        className="p-5"
     >
         <div className="sm:flex sm:items-start">
             <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
@@ -38,12 +39,12 @@ const ConfirmModal = ({ isOpen, onClose }) => {
                 <DialogTitle as="h3" className='text-base font-semibold leading-6 text-gray-900'>
                     Delete Conversation
                 </DialogTitle>
-                <div className="mt-2">
+                <div className="my-4">
                     <p className="text-sm text-gray-500">Are you sure you want to delete this conversation? this action cannot be undone.</p>
                 </div>
             </div>
         </div>
-        <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
+        <div className="flex max-sm:justify-center flex-row-reverse  max-sm:mt-6 ">
             <Button disabled={isLoading} danger onClick={onDelete}>Delete</Button>
             <Button className="border hover:bg-slate-300 border-gray-300 mr-2" disabled={isLoading} secondary onClick={onClose}>Cancel</Button>
         </div>
