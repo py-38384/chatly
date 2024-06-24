@@ -17,9 +17,9 @@ model User {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   name String?
   email String? @unique
-  emailVerified DateTime?
+  emailVerified Boolean?
   image String?
-  provider String? @default("local")
+  provider String?
   hashedPassword String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -76,7 +76,6 @@ model Conversation {
   users User[] @relation(fields: [userIds], references: [id])
 }
 
-// id String @default(auto()) @map("_id") @db.ObjectId
 model Message {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   body String?

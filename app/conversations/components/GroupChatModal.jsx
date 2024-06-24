@@ -39,7 +39,6 @@ const GroupChatModal = ({isOpen, onClose, users}) => {
             onClose()
         })
         .catch((e) => {
-            console.log(e)
             toast.error('Group creating went wrong!')
         })
         .finally(() => setIsLoading(false))

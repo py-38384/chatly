@@ -7,6 +7,29 @@ import { PrismaAdapter } from '@next-auth/prisma-adapter'
 
 import prisma from '@/app/libs/prismadb'
 
+const setUserProvider = async (user, provider) => {
+    if( provider === 'local' ){
+        await prisma.user.update({
+            where: {
+                id: user.id
+            },
+            data: {
+                provider: provider,
+            }
+        })
+    } else {
+        await prisma.user.update({
+            where: {
+                id: user.id
+            },
+            data: {
+                provider: provider,
+                emailVerified: true,
+            }
+        })
+    }
+}
+
 export const authOptions = {
     adapter: PrismaAdapter(prisma),
     providers: [
@@ -16,7 +39,7 @@ export const authOptions = {
         }),
         GoogleProvider({
             clientId: process.env.GOOGLE_ID,
-            clientSecret: process.env.GOOGLE_SECRET
+            clientSecret: process.env.GOOGLE_SECRET,
         }),
         CredentialsProvider({
             name: 'credentials',
@@ -44,11 +67,32 @@ export const authOptions = {
             }
         })
     ],
+    events:{
+        signIn: async ({ user, account, profile, isNewUser }) => {
+            if(isNewUser){
+                if(account){
+                    if(account?.provider == 'google'){
+                        setUserProvider(user, account.provider)
+                    }else if(account?.provider == 'github'){
+                        setUserProvider(user, account.provider)
+                    }else{
+                        setUserProvider(user, 'local')
+                    }
+                }else{
+                    setUserProvider(user, 'local')
+                }
+            }
+            // console.log('Is new user -',isNewUser)
+            // console.log('User -',user)
+            // console.log('Account -',account)
+            // console.log('Profile -',profile)
+        }
+    },
     debug: process.env.NODE_ENV === 'development',
     session: {
         strategy: 'jwt',
     },
-    secret: process.env.NEXTAUTH_SECRET
+    secret: process.env.NEXTAUTH_SECRET,
 }
 
 const handler = NextAuth(authOptions)

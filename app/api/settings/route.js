@@ -29,7 +29,6 @@ export async function POST( request ){
                 image: true,
             }
         })
-        console.log('Updated user -',updatedUser)
         return NextResponse.json(updatedUser)
     } catch (error) {
         console.log(error)

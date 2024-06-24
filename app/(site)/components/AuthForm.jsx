@@ -44,7 +44,10 @@ const AuthForm = () => {
         setIsLoading(true)
         if (variant === 'REGISTER') {
             await axios.post('/api/register', data)
-            .then(() => signIn('credentials', data))
+            .then(() => {
+                signIn('credentials', data)
+                toast.success('Account create successful.')
+            })
             .catch(() => toast.error('Something went wrong!'))
             .finally(() => setIsLoading(false))
         }
@@ -59,7 +62,7 @@ const AuthForm = () => {
                     toast.error('Invaild credentials')
                 }
                 if(callback?.ok && !callback?.error){
-                    router.push('/users')
+                    router.push('/conversations')
                 }
             })
             .finally(() => setIsLoading(false))

@@ -3,9 +3,9 @@ import Modal from '@/app/components/Modal'
 import Image from 'next/image'
 
 const ConversationModal = ({ otherUser, isOpen, onClose }) => {
-    console.log(otherUser)
-    let userImage = otherUser.image.slice(0,-4);
-    userImage+='500' 
+    if(otherUser.provider){
+        otherUser.image = otherUser.image.slice(0,-4)+'1000'
+    }
     return (
         <Modal isOpen={isOpen} onClose={onClose}>
             <div>

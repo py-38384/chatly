@@ -18,10 +18,8 @@ const UsersList = ({ items }) => {
     const searchSubmit = (e) => {
         e.preventDefault()
         setIsLoading(true)
-        console.log('Search Request placed')
         axios.post('api/users/search',{query})
         .then(({data}) => {
-            console.log('User Search Data -',data)
             setSearchUserItems(data)
         })
         .catch(() => setIsLoading(false))
