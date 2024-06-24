@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <AuthProvider>
-        <body className={inter.className}>
+        <body className={inter.className} suppressHydrationWarning={true}>
           <ToasterContext/>
           <ActiveStatus />
           {children}

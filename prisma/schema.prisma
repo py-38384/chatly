@@ -19,6 +19,7 @@ model User {
   email String? @unique
   emailVerified DateTime?
   image String?
+  provider String? @default("local")
   hashedPassword String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -28,6 +29,16 @@ model User {
 
   seenMessagesIds String[] @db.ObjectId
   seenMessages Message[] @relation("Seen", fields: [seenMessagesIds], references: [id]) 
+
+  friendsIds String[] @db.ObjectId
+  friends User[] @relation("Friend", fields: [friendsIds], references: [id])
+  friendOfsIds String[] @db.ObjectId
+  friendOfs User[] @relation("Friend", fields: [friendOfsIds], references: [id])
+
+  blockedsIds String[] @db.ObjectId
+  blockeds User[] @relation("block", fields: [friendsIds], references: [id])
+  blockedBysIds String[] @db.ObjectId
+  blockedBys User[] @relation("block", fields: [friendOfsIds], references: [id])
 
   accounts Account[]
   message Message[]

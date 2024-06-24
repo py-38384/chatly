@@ -38,6 +38,7 @@ const SettingsModal = ({ currentUser, isOpen, onClose }) => {
         .then(() => {
             router.refresh()
             onClose()
+            toast.success('Account successfully updated!')
         })
         .catch(() => toast.error('Something went wrong!'))
         .finally(() => setIsLoading(false))

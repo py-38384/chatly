@@ -1,13 +1,13 @@
 'use client'
 
-import useRoutes from "@/app/hooks/useRoute"
+import { useDeskTopRoutes } from "@/app/hooks/useRoute"
 import { useState } from "react"
 import DesktopItem from "./DesktopItem"
 import Avatar from "../Avatar"
 import SettingsModal from "./SettingsModal"
 
 const DesktopSidebar = ({ currentUser }) => {
-  const routes = useRoutes()
+  const routes = useDeskTopRoutes()
   const [isOpen, setIsOpen] = useState(false)
   return (
     <>

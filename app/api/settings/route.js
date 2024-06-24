@@ -21,11 +21,18 @@ export async function POST( request ){
             data: {
                 name,
                 image
+            },
+            select: {
+                id: true,
+                email: true,
+                name: true,
+                image: true,
             }
         })
-
+        console.log('Updated user -',updatedUser)
         return NextResponse.json(updatedUser)
     } catch (error) {
+        console.log(error)
         return new NextResponse('Internal Error', { status: 500 })
     }
 }
