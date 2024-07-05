@@ -7,18 +7,31 @@ const getUsers = async () => {
         return []
     }
     try {
-        const users = await prisma.user.findMany({
-            orderBy: {
-                createdAt: 'desc',
-            },
+        const user = await prisma.user.findUnique({
             where: {
-                NOT: {
-                    email: session.user.email
-                }
+                email: session.user.email
+            }
+        })
+        const users = await prisma.user.findMany({
+            where: {
+                id: {
+                    notIn: user.blockedIds,
+                },
+                id: {
+                    notIn: user.friendIds
+                },
+                email: {
+                    not: session.user.email
+                },
             }
         })
 
-        return users
+        return users.filter((item) => {
+            if(item.blockedIds.includes(user.id)){
+                return false
+            }
+            return true
+        })
     } catch (error) {
         return []
     }

@@ -29,6 +29,11 @@ export async function POST ( request ){
                         id: {
                             equals: currentUser.id
                         }
+                    },
+                    {
+                        id: {
+                            in: currentUser.blockedIds
+                        }
                     }
                 ]
             },

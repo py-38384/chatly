@@ -1,7 +1,7 @@
 import prisma from '@/app/libs/prismadb'
 import getSession from './getSession'
 
-const getFriends = async () => {
+const getFriendRequests = async () => {
     const session = await getSession()
     if(!session?.user?.email){
         return []
@@ -18,7 +18,7 @@ const getFriends = async () => {
             },
             where: {
                 id: {
-                    in: user.friendIds
+                    in: user.friendRequestFromIds
                 },
                 email: {
                     not: session.user.email
@@ -32,4 +32,4 @@ const getFriends = async () => {
     }
 }
 
-export default getFriends
+export default getFriendRequests

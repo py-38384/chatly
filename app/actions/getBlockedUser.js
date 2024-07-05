@@ -1,7 +1,7 @@
 import prisma from '@/app/libs/prismadb'
 import getSession from './getSession'
 
-const getFriends = async () => {
+const getBlockedUser = async () => {
     const session = await getSession()
     if(!session?.user?.email){
         return []
@@ -18,7 +18,7 @@ const getFriends = async () => {
             },
             where: {
                 id: {
-                    in: user.friendIds
+                    in: user.blockedIds
                 },
                 email: {
                     not: session.user.email
@@ -26,10 +26,15 @@ const getFriends = async () => {
             }
         })
 
-        return users
+        return users.filter((item) => {
+            if(item.blockedIds.includes(user.id)){
+                return false
+            }
+            return true
+        })
     } catch (error) {
         return []
     }
 }
 
-export default getFriends
+export default getBlockedUser

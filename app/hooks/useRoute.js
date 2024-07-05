@@ -2,6 +2,7 @@ import { useMemo } from "react"
 import { usePathname } from "next/navigation"
 import { HiChat } from 'react-icons/hi'
 import { HiArrowLeftOnRectangle, HiUsers } from 'react-icons/hi2'
+import { FaGlobeAmericas } from "react-icons/fa";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { signOut } from "next-auth/react"
 import useConversation from "./useConversation"
@@ -18,10 +19,16 @@ export const useDeskTopRoutes = () => {
             active: pathname === '/conversations' || !!conversationId
         },
         {
-            label: 'Users',
-            href: '/users',
+            label: 'Friends',
+            href: '/friends',
             icon: HiUsers,
-            active: pathname === '/users'
+            active: pathname === '/friends'
+        },
+        {
+            label: 'Global',
+            href: '/global',
+            icon: FaGlobeAmericas,
+            active: pathname === '/global'
         },
         {
             label: 'Logout',
@@ -46,10 +53,16 @@ export const useMobileRoutes = () => {
             active: pathname === '/conversations' || !!conversationId
         },
         {
-            label: 'Users',
-            href: '/users',
+            label: 'Friends',
+            href: '/friends',
             icon: HiUsers,
-            active: pathname === '/users'
+            active: pathname === '/friends'
+        },
+        {
+            label: 'Global',
+            href: '/global',
+            icon: FaGlobeAmericas,
+            active: pathname === '/global'
         },
         {
             label: 'Account',

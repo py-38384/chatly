@@ -30,15 +30,20 @@ model User {
   seenMessagesIds String[] @db.ObjectId
   seenMessages Message[] @relation("Seen", fields: [seenMessagesIds], references: [id]) 
 
-  friendsIds String[] @db.ObjectId
-  friends User[] @relation("Friend", fields: [friendsIds], references: [id])
-  friendOfsIds String[] @db.ObjectId
-  friendOfs User[] @relation("Friend", fields: [friendOfsIds], references: [id])
+  friendIds String[] @db.ObjectId
+  friends User[] @relation("Friend", fields: [friendIds], references: [id])
+  friendOfIds String[] @db.ObjectId
+  friendOfs User[] @relation("Friend", fields: [friendOfIds], references: [id])
 
-  blockedsIds String[] @db.ObjectId
-  blockeds User[] @relation("block", fields: [friendsIds], references: [id])
-  blockedBysIds String[] @db.ObjectId
-  blockedBys User[] @relation("block", fields: [friendOfsIds], references: [id])
+  friendRequestIds String[] @db.ObjectId
+  friendRequests User[] @relation("FriendRequest", fields: [friendRequestIds], references: [id])
+  friendRequestFromIds String[] @db.ObjectId
+  friendRequestFroms User[] @relation("FriendRequest", fields: [friendRequestFromIds], references: [id])
+
+  blockedIds String[] @db.ObjectId
+  blockeds User[] @relation("block", fields: [blockedIds], references: [id])
+  blockedByIds String[] @db.ObjectId
+  blockedBys User[] @relation("block", fields: [blockedByIds], references: [id])
 
   accounts Account[]
   message Message[]

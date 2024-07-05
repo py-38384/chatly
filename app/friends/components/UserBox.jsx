@@ -5,10 +5,12 @@ import LoadingModal from "@/app/components/LoadingModal"
 import { HiEllipsisVertical } from "react-icons/hi2";
 import axios from "axios"
 import { useRouter } from "next/navigation"
+import FriendsModel from "./FriendsModel";
 import { useCallback, useState } from "react"
 
 const UserBox = ({ data }) => {
   const router = useRouter()
+  const [isOpen, setIsOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const handleClick = useCallback(() => {
     setIsLoading(true)
@@ -24,6 +26,11 @@ const UserBox = ({ data }) => {
   },[data, router])
   return (
     <>
+      <FriendsModel
+        otherUser={data}
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+      />
       {isLoading && (
         <LoadingModal />
       )}
@@ -41,7 +48,7 @@ const UserBox = ({ data }) => {
           </div>
         </div>
         <div className="flex items-center justify-center">
-          <div className="hover:bg-neutral-100 rounded-full">
+          <div onClick={() => setIsOpen(true)} className="hover:bg-neutral-100 rounded-full">
             <HiEllipsisVertical className="text-2xl"/>
           </div>
         </div>
